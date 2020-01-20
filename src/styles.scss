@@ -5,6 +5,11 @@ body {
     background-color: #fff;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
+
 * {
     transition: 0.2s;
 }

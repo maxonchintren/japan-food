@@ -1,13 +1,13 @@
 <nav [style.transform] = 'menuPosition'>
   <ul>
-    <li>welcome</li>
-    <li>menu</li>
+    <li><a href='#top'>welcome</a></li>
+    <li><a href='#menu'>menu</a></li>
     <li>events</li>
     <li>contact</li>
     <li (click) = 'toggleMenu()'>&#9776;</li>
   </ul>
 </nav>
-<header>
+<header id='top'>
   <div>
     <img src="./../assets/images/logo.png">
     <p>New opening</p>
@@ -63,78 +63,27 @@
       </div>
     </div>
   </section>
-  <section class='order__section'>
+  <section class='order__section' id='menu'>
     <div class='outer__cont'>
       <div class='heading'>
         <span>We bring tradition</span>
         <p>to your plate</p>
       </div>
       <div class='dishes__cont'>
-        <img src="./../assets/images/dish-1.png">
-        <div class='dish__desc'>
-          <span>california sushi</span>
-          <p>Lorem ipsum dolor sit amet, consectetur 
-            adipisicing elit sed do.</p>
-            <select (change) = 'showPrice()'>
-              <option *ngFor = 'let num of [1,2,3,4,5,6]'>{{num}}</option>
-            </select>
-            <button type='button'>Add to your order!</button>
-          <span class='pricing'>{{14.95 | currency}}</span>
-        </div>
-        <img src="./../assets/images/dish-2.png">
-        <div class='dish__desc'>
-          <span>traditional wok</span>
-          <p>Lorem ipsum dolor sit amet, consectetur 
-            adipisicing elit sed do.</p>
-          <select (change) = 'showPrice()'>
-              <option *ngFor = 'let num of [1,2,3,4,5,6]'>{{num}}</option>
-          </select>
-          <button type='button'>Add to your order!</button>
-          <span class='pricing'>{{14.95 | currency}}</span>
-        </div>
-        <div class='dish__desc'>
-          <span>poke bowl</span>
-          <p>Lorem ipsum dolor sit amet, consectetur 
-            adipisicing elit sed do.</p>
-            <select (change) = 'showPrice()'>
-              <option *ngFor = 'let num of [1,2,3,4,5,6]'>{{num}}</option>
-            </select>
-            <button type='button'>Add to your order!</button>
-          <span class='pricing'>{{14.95 | currency}}</span>
-        </div>
-        <img src="./../assets/images/dish-3.png">
-        <div class='dish__desc'>
-          <span>fresh salmon</span>
-          <p>Lorem ipsum dolor sit amet, consectetur 
-            adipisicing elit sed do.</p>
-            <select (change) = 'showPrice()'>
-              <option *ngFor = 'let num of [1,2,3,4,5,6]'>{{num}}</option>
-            </select>
-            <button type='button'>Add to your order!</button>
-          <span class='pricing'>{{14.95 | currency}}</span>
-        </div>
-        <img src="./../assets/images/dish-4.png">
-        <img src="./../assets/images/dish-5.png">
-        <div class='dish__desc'>
-          <span>avacado sushi</span>
-          <p>Lorem ipsum dolor sit amet, consectetur 
-            adipisicing elit sed do.</p>
-            <select (change) = 'showPrice()'>
-              <option *ngFor = 'let num of [1,2,3,4,5,6]'>{{num}}</option>
-            </select>
-            <button type='button'>Add to your order!</button>
-          <span class='pricing'>{{14.95 | currency}}</span>
-        </div>
-        <img src="./../assets/images/dish-6.png">
-        <div class='dish__desc'>
-          <span>king sushi</span>
-          <p>Lorem ipsum dolor sit amet, consectetur 
-            adipisicing elit sed do.</p>
-            <select (change) = 'showPrice()'>
-              <option *ngFor = 'let num of [1,2,3,4,5,6]'>{{num}}</option>
-            </select>
-            <button type='button'>Add to your order!</button>
-          <span class='pricing'>{{14.95 | currency}}</span>
+        <div class='single-dish__cont' *ngFor='let dish of dishes'>
+          <img [src]= 'dish.photo_url'>
+          <div class='dish__desc'>
+            <span class='dish__name'>{{dish.name}}</span>
+            <p>{{dish.description}}</p>
+            <div>
+              <select (change) = 'showPrice()'>
+                <option *ngFor = 'let num of [1,2,3,4,5,6]'>{{num}}</option>
+              </select>
+              <button type='button' (click)='addDishToOrder(dish.name)'>Add to your order!</button>
+            </div>
+            <span class='pricing'>{{dish.price | currency}}</span>
+            <span class='order__total'>Total for this dish: {{dish.price * dish.amount | currency}}, Amount: {{dish.amount}} (max: 6)</span>
+          </div>
         </div>
       </div>
     </div>

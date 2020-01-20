@@ -2,25 +2,27 @@
 
 button, select {
     padding: 5px 10px;
-    font-size: 20px;
+    font-size: 15px;
+    margin: 0 5px;
     font-family: $font-main;
     background-color: transparentize($color: $bg-color-main, $amount: 0.4);
     color: $color-sub;
-    border: 2px solid transparentize($color: $color-main, $amount: 0.4);
+    border: 1px solid transparentize($color: $color-main, $amount: 0.4);
     transition: 0.1s;
+    height: 36px;
 
     &:hover {
         background-color: $color-main;
         border-color: transparentize($color: #fff, $amount: 0.4);
     }
 
-    &:active {
-        transform: scale(1.1, 1.1);
-    }
-
     &:focus {
         outline: 0;
     }
+}
+
+button:active {
+    transform: scale(1.1, 1.1);
 }
 
 nav {
@@ -55,7 +57,7 @@ nav {
             }
 
             &:last-child {
-                margin-left: 7px;
+                margin-left: 15px;
                 margin-bottom: 20px;
                 padding: 0;
                 width: 10%;
@@ -66,6 +68,11 @@ nav {
                     background-color: transparent;
                 }
 
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none;
             }
         }
     }
@@ -228,40 +235,62 @@ header {
             width: 100%;
             flex-direction: row;
             flex-wrap: wrap;
-            
-            img {
-                width: 25%;
-            }
 
-            .dish__desc {
-                width: 25%;
+            .single-dish__cont {
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: space-evenly;
-                text-align: center;
+                justify-content: center;
+                width: 50%;
+                flex-direction: row;
+                flex-wrap: wrap;
 
-                span {
-                    font-size: 25px;
-                    color: $color-main;
-                    text-transform: capitalize;
-                    font-family: $font-gochi;
+                img {
+                    width: 50%;
+                }
+    
+                .dish__desc {
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: space-evenly;
+                    text-align: center;
+                    border-top: 2px solid transparentize($color: $color-main, $amount: 0.4);
+    
+                    span {
+                        font-size: 25px;
+                        color: $color-main;
+                        text-transform: capitalize;
+                        font-family: $font-gochi;
+                    }
+    
+                    .pricing {
+                        color: $color-sub;
+                    }
+
+                    .order__total {
+                        font-size: 16px;
+                        font-family: $font-main;
+                        color: $color-sub;
+                    }
+    
+                    p {
+                        color: $color-sub;
+                        font-size: 1em;
+                        margin: 20px 0;
+                        width: 85%;
+                        font-family: $font-main;
+                    }
+    
+                    div {
+                        display: flex;
+                        justify-content: center;
+                        
+                    }
+                    
                 }
 
-                .pricing {
-                    color: $color-sub;
-                }
-
-                p {
-                    color: $color-sub;
-                    font-size: 20px;
-                    margin: 20px 0;
-                    width: 85%;
-                    font-family: $font-main;
-                }
-
-                
             }
+
 
         }
     }
