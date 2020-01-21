@@ -27,37 +27,37 @@ export class OrderService {
     { name: 'california sushi',
       price: 14.95,
       amount: 0,
-      photo_url: "./../assets/images/dish-1.png",
+      photo_url: "./assets/images/dish-1.png",
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.'
     },
     { name: 'traditional wok',
       price: 17.95,
       amount: 0,
-      photo_url: "./../assets/images/dish-2.png",
+      photo_url: "./assets/images/dish-2.png",
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.' 
     },
     { name: 'poke bowl',
       price: 18.95,
       amount: 0,
-      photo_url: "./../assets/images/dish-3.png",
+      photo_url: "./assets/images/dish-3.png",
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.'
     },
     { name: 'fresh salmon',
       price: 21.20,
       amount: 0,
-      photo_url: "./../assets/images/dish-4.png",
+      photo_url: "./assets/images/dish-4.png",
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.'
     },
     { name: 'avacado sushi',
       price: 12.50,
       amount: 0,
-      photo_url: "./../assets/images/dish-5.png",
+      photo_url: "./assets/images/dish-5.png",
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.'
     },
     { name: 'king sushi',
       price: 19.75,
       amount: 0,
-      photo_url: "./../assets/images/dish-6.png",
+      photo_url: "./assets/images/dish-6.png",
       description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.'
     },
   ]
