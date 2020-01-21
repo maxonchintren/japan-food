@@ -2,7 +2,7 @@
   <ul>
     <li><a href='#top'>welcome</a></li>
     <li><a href='#menu'>menu</a></li>
-    <li>events</li>
+    <li><a href='#order'>order</a></li>
     <li>contact</li>
     <li (click) = 'toggleMenu()'>&#9776;</li>
   </ul>
@@ -88,4 +88,95 @@
       </div>
     </div>
   </section>
+  <section class='order-confirm__section'>
+    <form id='order'>
+      <div class='order-confirm__heading'>
+        <p>Confirm your order!</p>
+      </div>
+      <div class='order-confirm-inner__container'>
+        <div class='input__container'>
+          <label for='full-name'>Full Name</label>
+          <input type ='text' id='full-name' maxlength="35" placeholder="John Smith" minlength="5">
+        </div>
+        <div class='input__container'>
+          <label for='phone-number'>Phone Number</label>
+          <input type ='text' id='phone-number' placeholder="+7999111222" maxlength="11" minlength="11">
+        </div>
+        <div class='input__container'>
+          <label for='number-of-people'>How many people?</label>
+          <input type ='number' id='number-of-people' min='1' max='10' (keydown) = 'false' value='1'>
+        </div>
+      </div>
+      <div class='order__details'>
+        <div class='order-details__detail' *ngFor = 'let dish of dishes'>
+          <span  *ngIf = 'dish.amount > 0'>{{dish.name}}</span>
+          <input *ngIf = 'dish.amount > 0' 
+          type ='number' min='0' max='6' 
+          (keydown) = 'false' [value] = 'dish.amount'
+          (change) = 'changeAmount(dish)'>
+          <span  *ngIf = 'dish.amount > 0'>{{(dish.amount * dish.price).toFixed(2) | currency}}</span>
+        </div>
+        <p class='total-cost'>{{totalCost()}}</p>
+        <button type="button">Confirm order</button>
+      </div>
+    </form>
+  </section>
+  <section class='new__menu'>
+    <div class='new-menu-heading__container'>
+      <span>Discover</span>
+      <p>our new menu</p>
+    </div>
+    <div class='new-menu-dishes__container'>
+      <div class='new-menu-dish'>
+        <img src="./../assets/images/new-menu-1.png">
+        <span class='new-dish-name'>Food / 16th March, 2020</span>
+        <p>Lorem ipsum dolor sit amet, consectetur 
+          adipisicing elit sed do eiusmod tempor 
+          incididunt ut labore et dolorem magna aliqua.</p>
+        <span>Read more</span>
+      </div>
+      <div class='new-menu-dish'>
+        <img src="./../assets/images/new-menu-2.png">
+        <span class='new-dish-name'>Spices / 16th March, 2020</span>
+        <p>Lorem ipsum dolor sit amet, consectetur 
+          adipisicing elit sed do eiusmod tempor 
+          incididunt ut labore et dolorem magna aliqua.</p>
+        <span>Read more</span>
+      </div>
+      <div class='new-menu-dish'>
+        <img src="./../assets/images/new-menu-3.png">
+        <span class='new-dish-name'>Chicken Curry / 05th April, 2020</span>
+        <p>Lorem ipsum dolor sit amet, consectetur 
+          adipisicing elit sed do eiusmod tempor 
+          incididunt ut labore et dolorem magna aliqua.</p>
+        <span>Read more</span>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class='socials__cont'>
+      <img src='./../assets/images/social-1.png'>
+      <img src='./../assets/images/social-2.png'>
+      <img src='./../assets/images/social-3.png'>
+      <img src='./../assets/images/social-4.png'>
+      <img src='./../assets/images/social-5.png'>
+    </div>
+    <div class='info__cont'>
+      <div class='about__cont'>
+        <span>about</span>
+        <p>Lorem ipsum dolor sit amet, consectetur 
+          adipisicing elit sed do eiusmod tempor 
+          incididunt ut labore et dolorem magna aliqua.</p>
+      </div>
+      <div class='links__cont'>
+        <span>links</span>
+        <ul>
+          <li><a>Link</a></li>
+          <li><a>Link</a></li>
+          <li><a>Link</a></li>
+          <li><a>Link</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 </main>

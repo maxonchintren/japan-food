@@ -8,6 +8,14 @@ interface dish {
   description: string
 }
 
+interface order {
+  name : string;
+  phone: number;
+  people: number;
+  dishes: dish[],
+  total_cost: number
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -74,15 +82,25 @@ export class OrderService {
     for (let dish of this.orderDishes) {
       if (dish.name === name && dish.amount + count <= 6) {
         dish.amount += count
-        console.log(dish)
       }
     }
   }
 
+////
+  public totalCost() {
+    let field = document.querySelector('.total-cost');
+    let result: number = 0;
+    for (let dish of this.orderDishes) {
+      result += dish.price * dish.amount;
+    }
+    field.textContent = 'Total: $' + String(result.toFixed(2));
+  }
 
-
-
-
+//// 
+  public changeAmount(dish) {
+    let target = <HTMLInputElement>event.target
+    dish.amount = parseFloat(target.value);
+  }
 
 }
   

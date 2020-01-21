@@ -3,13 +3,14 @@
 button, select {
     padding: 5px 10px;
     font-size: 15px;
-    margin: 0 5px;
+    margin: 10px 5px;
     font-family: $font-main;
     background-color: transparentize($color: $bg-color-main, $amount: 0.4);
     color: $color-sub;
     border: 1px solid transparentize($color: $color-main, $amount: 0.4);
     transition: 0.1s;
     height: 36px;
+    border-radius: 6px;
 
     &:hover {
         background-color: $color-main;
@@ -290,7 +291,235 @@ header {
                 }
 
             }
+        }
+    }
+}
 
+.order-confirm__section {
+    height: 1730px;
+    background-image: url('./../assets/images/bg-order-confirm.png');
+    background-size: cover;
+    border-top: 1px solid transparent;
+    
+    form {
+        background-color: transparentize($color: $bg-color-main, $amount: 0.1);
+        margin: 500px auto;
+
+        .order-confirm__heading {
+            border-top: 1px solid transparent;
+            text-align: center;
+
+            p {
+                color:$color-main;
+                font-family: $font-gochi;
+                font-size: 35px;
+            }
+        }
+
+        .order-confirm-inner__container {
+            display: flex;
+            justify-content: center;
+
+            .input__container {
+                margin: 15px 70px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                &:last-child {
+                    margin-right: 200px;
+                }
+
+                label {
+                    margin-bottom: 10px;
+                    color: $color-sub;
+                    font-family: $font-main;
+                    font-size: 20px;
+                }
+
+                input {
+                    width: 300px;
+                    background-color: transparentize($color: $bg-color-secondary, $amount: 0.4);
+                    color: $color-sub;
+                    font-family: $font-main;
+                    font-size: 18px;
+                    border: none;
+                }
+                
+                #number-of-people {
+                    width: 80px;
+                    text-align: center;
+                }
+            }
+        }
+
+        .order__details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .order-details__detail {
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                margin-top: 20px;
+                width: 80%;
+
+                span {
+                    color: $color-main;
+                    font-family: $font-gochi;
+                    font-size: 30px;
+                    margin: 20px auto;
+                    text-transform: capitalize;
+                    width: 200px;
+                }
+
+                input {
+                    width: 80px;
+                    height: 25px;
+                    background-color: transparentize($color: $bg-color-secondary, $amount: 0.4);
+                    color: $color-sub;
+                    font-family: $font-main;
+                    font-size: 16px;
+                    border: none;
+                    text-align: center;
+                }
+            }
+            .total-cost {
+                font-size: 35px;
+                font-family: $font-gochi;
+                color: $color-sub;
+            }
+        
+        }  
+    }
+}
+
+.new__menu {
+    background-color: $bg-color-secondary;
+    border: 1px solid transparent;
+
+    .new-menu-heading__container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 30px;
+
+        span {
+            color: $color-main;
+            font-family: $font-gochi;
+            font-size: 45px;
+        }
+
+        p {
+            text-transform: uppercase;
+            color: $color-sub;
+            font-family: $font-main;
+            font-size: 35px;
+            margin-top: 0;
+        }
+    }
+
+    .new-menu-dishes__container {
+        display: flex;
+        justify-content: center;
+        margin: 40px auto;
+
+        .new-menu-dish {
+            background-color: $color-sub;
+            font-family: $font-main;
+            width: 17%;
+            margin: 0 40px;
+            
+
+            img {
+                width: 100%;
+            }
+
+            span {
+                display: block;
+                font-size: 16px;
+                margin: 15px 10px;
+                font-weight: bolder;
+
+                &:hover {
+                    color: $color-main;
+                    cursor: pointer;
+                }
+            }
+
+            p {
+                font-size: 15px;
+                margin: 5px 10px;
+            }
+        }
+    }
+}
+
+footer {
+    background-color: $bg-color-secondary;
+
+    .socials__cont {
+        background-color: $bg-color-main;
+        display: flex;
+        justify-content: center;
+
+        img {
+            margin: 25px 35px;
+
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .info__cont {
+        display: flex;
+        justify-content: space-between;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            margin: 30px 80px;
+            width: 40%;
+
+            span {
+                font-family: $font-main;
+                font-size: 25px;
+                color: $color-sub;
+                margin-bottom: 15px;
+                text-transform: uppercase;
+            }
+
+            p {
+                color: $color-sub;
+                font-family: $font-main;
+                font-size: 18px;
+                margin: 0;
+            }
+
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+
+                li {
+                    margin: 10px 0;
+
+                    a {
+                        text-decoration: none;
+                        color: $color-sub;
+                        font-family: $font-main;
+                        font-size: 18px;
+
+                        &:hover {
+                            border-bottom: 1px solid $color-sub;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
 
         }
     }

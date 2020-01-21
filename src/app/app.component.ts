@@ -12,7 +12,9 @@ export class AppComponent {
   public dishes = this._orderService.orderDishes;
   public menuPosition: string = 'translateX(-92%)'
 
-  constructor(private _orderService: OrderService) {}
+  constructor(private _orderService: OrderService) {
+
+  }
 
   public toggleMenu(): void {
     if (this.menuPosition === 'translateX(-92%)') {
@@ -29,4 +31,15 @@ export class AppComponent {
   addDishToOrder(name) {
     this._orderService.addDishToOrder(name);
   }
+
+  totalCost() {
+    this._orderService.totalCost()
+  }
+  
+  changeAmount(dish) {
+    this._orderService.changeAmount(dish)
+  }
+
 }
+
+
