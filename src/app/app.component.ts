@@ -11,6 +11,8 @@ export class AppComponent {
   public multiplicator: number = 1;
   public dishes = this._orderService.orderDishes;
   public menuPosition: string = 'translateX(-92%)'
+  public confirmVis = true;
+  public gratitudeVis = false;
 
   constructor(private _orderService: OrderService) {
 
@@ -40,6 +42,19 @@ export class AppComponent {
     this._orderService.changeAmount(dish)
   }
 
+  formOrder() {
+    let finalOrder = this._orderService.formOrder();
+    let name = <HTMLInputElement>document.getElementById('full-name');
+    let phone = <HTMLInputElement>document.getElementById('phone-number');
+
+    if (name.value == '' || phone.value == '' || finalOrder.dishes.length === 0) {
+      return false;
+    }
+
+    console.log(finalOrder);
+    this.confirmVis = false;
+    this.gratitudeVis = true;
+  }
 }
 
 

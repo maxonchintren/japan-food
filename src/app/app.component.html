@@ -89,18 +89,18 @@
     </div>
   </section>
   <section class='order-confirm__section'>
-    <form id='order'>
+    <form id='order'  *ngIf = 'confirmVis'>
       <div class='order-confirm__heading'>
         <p>Confirm your order!</p>
       </div>
       <div class='order-confirm-inner__container'>
         <div class='input__container'>
-          <label for='full-name'>Full Name</label>
+          <label for='full-name'>Full Name *</label>
           <input type ='text' id='full-name' maxlength="35" placeholder="John Smith" minlength="5">
         </div>
         <div class='input__container'>
-          <label for='phone-number'>Phone Number</label>
-          <input type ='text' id='phone-number' placeholder="+7999111222" maxlength="11" minlength="11">
+          <label for='phone-number'>Phone Number *</label>
+          <input type ='text' id='phone-number' placeholder="+7(999)-111-222" maxlength="12" minlength="11">
         </div>
         <div class='input__container'>
           <label for='number-of-people'>How many people?</label>
@@ -111,15 +111,21 @@
         <div class='order-details__detail' *ngFor = 'let dish of dishes'>
           <span  *ngIf = 'dish.amount > 0'>{{dish.name}}</span>
           <input *ngIf = 'dish.amount > 0' 
-          type ='number' min='0' max='6' 
+          type ='number' min='1' max='6' 
           (keydown) = 'false' [value] = 'dish.amount'
           (change) = 'changeAmount(dish)'>
           <span  *ngIf = 'dish.amount > 0'>{{(dish.amount * dish.price).toFixed(2) | currency}}</span>
+          <span *ngIf = 'dish.amount > 0' (click) = 'dish.amount = 0'>×</span>
         </div>
         <p class='total-cost'>{{totalCost()}}</p>
-        <button type="button">Confirm order</button>
+        <button type="button" (click) = 'formOrder()'>Confirm order</button>
       </div>
     </form>
+    <div class='gratitude__container' *ngIf = 'gratitudeVis'>
+      <p>Thank you for your order!</p>
+      <span>We will call you to confirm it</span>
+      <i>*you can see formed object in console*</i>
+    </div>
   </section>
   <section class='new__menu'>
     <div class='new-menu-heading__container'>

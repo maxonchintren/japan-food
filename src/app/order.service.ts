@@ -9,8 +9,8 @@ interface dish {
 }
 
 interface order {
-  name : string;
-  phone: number;
+  name: string;
+  phone: string;
   people: number;
   dishes: dish[],
   total_cost: number
@@ -87,7 +87,7 @@ export class OrderService {
   }
 
 ////
-  public totalCost() {
+  public totalCost():void {
     let field = document.querySelector('.total-cost');
     let result: number = 0;
     for (let dish of this.orderDishes) {
@@ -97,9 +97,26 @@ export class OrderService {
   }
 
 //// 
-  public changeAmount(dish) {
+  public changeAmount(dish):void {
     let target = <HTMLInputElement>event.target
     dish.amount = parseFloat(target.value);
+  }
+
+  public formOrder() {
+    let fullName = <HTMLInputElement>document.getElementById("full-name");
+    let phoneNumber = <HTMLInputElement>document.getElementById("phone-number");
+    let numberOfPeople = <HTMLInputElement>document.getElementById("number-of-people");
+    let dishesToOrder = this.orderDishes.filter((dish) => dish.amount > 0)
+
+    let newOrder: order = {
+      name: fullName.value,
+      phone: phoneNumber.value,
+      people: parseFloat(numberOfPeople.value),
+      dishes: dishesToOrder,
+      total_cost: parseFloat(dishesToOrder.reduce((total: number, item) => total + (item.price * item.amount), 0).toFixed(2))
+    }
+
+    return newOrder;
   }
 
 }

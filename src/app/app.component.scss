@@ -377,6 +377,17 @@ header {
                     margin: 20px auto;
                     text-transform: capitalize;
                     width: 200px;
+
+                    &:last-child {
+                        font-size: 60px;
+                        color: $color-sub;
+                        width: 30px;
+                        margin: 0;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
                 }
 
                 input {
@@ -397,6 +408,29 @@ header {
             }
         
         }  
+    }
+
+    .gratitude__container {
+        background-color: transparentize($color: $bg-color-main, $amount: 0.1);
+        margin: 500px auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 300px;
+
+        p {
+            color:$color-sub;
+            font-family: $font-main;
+            font-size: 35px;
+        }
+
+        span {
+            color: $color-main;
+            font-family: $font-gochi;
+            font-size: 30px;
+            margin: 20px auto;
+            text-transform: capitalize;
+        }
     }
 }
 
